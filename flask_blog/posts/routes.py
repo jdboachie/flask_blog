@@ -24,14 +24,14 @@ def new_post():
 
 @posts.route('/post/<int:post_id>')
 @login_required
-def post(post_id):
+def post(post_id: int):
     post = Post.query.get_or_404(post_id)
     return render_template('post.html', title=post.title, post=post)
 
 
 @posts.route('/post/<int:post_id>/update', methods=['GET', 'POST'])
 @login_required
-def update_post(post_id):
+def update_post(post_id: int):
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
@@ -50,7 +50,7 @@ def update_post(post_id):
 
 @posts.route('/post/<int:post_id>/delete', methods=['POST'])
 @login_required
-def delete_post(post_id):
+def delete_post(post_id: int):
     post = Post.query.get_or_404(post_id)
     if post.author != current_user:
         abort(403)
