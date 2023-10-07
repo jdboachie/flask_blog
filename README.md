@@ -1,1 +1,3 @@
-https://www.tutorialspoint.com/flask/index.htm
+# Flask Blog
+
+`in progress`
